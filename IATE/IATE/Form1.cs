@@ -33,5 +33,10 @@ namespace IATE
             Form3 newForm = new Form3();
             newForm.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"Guide.docx");
+        }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace IATE
 {
-    public partial class Form2 : Form
+    public partial class Form5 : Form
     {
-        public Form2()
+        public Form5()
         {
             InitializeComponent();
         }
@@ -20,12 +20,6 @@ namespace IATE
         private void button1_Click(object sender, EventArgs e)
         {
             Form4 newForm = new Form4();
-            newForm.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Form5 newForm = new Form5();
             newForm.Show();
         }
     }

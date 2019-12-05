@@ -10,3 +10,16 @@ C:\Users\alenk\Documents\Практика\IATE\IATE\obj\Debug\IATE.pdb
 C:\Users\alenk\Documents\Практика\IATE\IATE\obj\Debug\IATE.Form2.resources
 C:\Users\alenk\Documents\Практика\IATE\IATE\obj\Debug\IATE.Form3.resources
 C:\Users\alenk\Documents\Практика\IATE\IATE\obj\Debug\IATE.Form4.resources
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\bin\Debug\IATE.exe.config
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\bin\Debug\IATE.exe
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\bin\Debug\IATE.pdb
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.csprojAssemblyReference.cache
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Form1.resources
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Form2.resources
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Form3.resources
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Form4.resources
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Properties.Resources.resources
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.csproj.GenerateResource.cache
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.exe
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.pdb
+C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Form5.resources
