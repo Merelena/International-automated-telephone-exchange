@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace IATE
 {
-    public partial class Form5 : Form
+    public partial class Form6 : Form
     {
-        public Form5()
+        public Form6()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form6 newForm = new Form6();
-            newForm.Show();
         }
     }
 }
