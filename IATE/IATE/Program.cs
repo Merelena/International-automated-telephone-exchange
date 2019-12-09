@@ -10,7 +10,7 @@ namespace IATE
     static class Program
     {
         internal static int id;
-
+        internal static string exchange = null;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

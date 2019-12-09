@@ -70,11 +70,17 @@ namespace IATE
             StreamWriter iden = new StreamWriter("Identificator.txt");
             iden.Write(Program.id);
             iden.Close();
+            Program.exchange = Convert.ToString(Program.id) + "    " + date.ToString("D") +"    " + city;
+            StreamWriter file2 = new StreamWriter("Квитанции.txt", true);
+            file2.WriteLine(Program.exchange);
+            file2.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+            Form2 newForm = new Form2();
+            newForm.Show();
         }
     }
 }
