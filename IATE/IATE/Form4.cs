@@ -55,7 +55,6 @@ namespace IATE
 
         private void button1_Click(object sender, EventArgs e)
         {
-            float price = tariff * time;
             Program.id += 1;
             string address = Convert.ToString(Program.id) + ".txt";
             StreamWriter file = new StreamWriter(address);
@@ -63,14 +62,13 @@ namespace IATE
             file.WriteLine(city);
             file.WriteLine(code);
             file.WriteLine(tariff);
-            file.WriteLine(price);
             file.WriteLine(caller);
             file.WriteLine(subscriber);
             file.Close();
             StreamWriter iden = new StreamWriter("Identificator.txt");
             iden.Write(Program.id);
             iden.Close();
-            Program.exchange = Convert.ToString(Program.id) + "    " + date.ToString("D") +"    " + city;
+            Program.exchange = Convert.ToString(Program.id) + "     " + date.ToString("D") +"    " + city;
             StreamWriter file2 = new StreamWriter("Квитанции.txt", true);
             file2.WriteLine(Program.exchange);
             file2.Close();

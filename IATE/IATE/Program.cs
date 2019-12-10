@@ -11,6 +11,7 @@ namespace IATE
     {
         internal static int id;
         internal static string exchange = null;
+        internal static string exchange2 = null;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
