@@ -16,6 +16,7 @@ namespace IATE
         public Form2()
         {
             InitializeComponent();
+            this.MdiParent = Form1.mainParent;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,11 +49,6 @@ namespace IATE
             Form6 newForm = new Form6();
             newForm.Text = id;
             newForm.Show();
-            Close();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
             Close();
         }
     }

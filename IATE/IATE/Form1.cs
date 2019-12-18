@@ -12,9 +12,11 @@ namespace IATE
 {
     public partial class Form1 : Form
     {
+        static public Form1 mainParent;
         public Form1()
         {
             InitializeComponent();
+            mainParent = this;
         }
 
         private void button3_Click(object sender, EventArgs e)

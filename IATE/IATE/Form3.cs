@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,12 @@ namespace IATE
         public Form3()
         {
             InitializeComponent();
+            this.MdiParent = Form1.mainParent;
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+        
         }
     }
 }

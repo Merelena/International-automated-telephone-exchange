@@ -14,9 +14,11 @@ namespace IATE
     public partial class Form6 : Form
     {
         string id = Program.exchange;
+        int old_time;
         public Form6()
         {
             InitializeComponent();
+            this.MdiParent = Form1.mainParent;
         }
 
         private void Form6_Load(object sender, EventArgs e)
@@ -26,6 +28,7 @@ namespace IATE
             textBox3.Text = file.ReadLine();
             textBox4.Text = file.ReadLine();
             textBox5.Text = file.ReadLine();
+            old_time = Convert.ToInt32(textBox5.Text);
             textBox6.Text = file.ReadLine();
             textBox1.Text = file.ReadLine();
             textBox2.Text = file.ReadLine();
@@ -46,10 +49,16 @@ namespace IATE
             StreamReader reader = new StreamReader("Квитанции.txt");
             string kvitations = reader.ReadToEnd();
             reader.Close();
-            kvitations = kvitations.Replace(Program.exchange2, Convert.ToString(Program.id) + "     " + dateTimePicker1.Value.ToString("D") + "    " + textBox3.Text);
+            kvitations = kvitations.Replace(Program.exchange2, Convert.ToString(id) + "     " + dateTimePicker1.Value.ToString("D") + "    " + textBox3.Text);
             StreamWriter writer = new StreamWriter("Квитанции.txt");
             writer.Write(kvitations);
             writer.Close();
+            StreamReader city = new StreamReader(textBox3.Text + ".txt");
+            int time = Convert.ToInt32(city.ReadLine());
+            city.Close();
+            StreamWriter city2 = new StreamWriter(textBox3.Text + ".txt");
+            city2.WriteLine(Convert.ToInt32(time) - old_time + Convert.ToInt32(textBox5.Text));
+            city2.Close();
             Close();
             Form2 newForm = new Form2();
             newForm.Show();
@@ -62,10 +71,16 @@ namespace IATE
             StreamReader reader = new StreamReader("Квитанции.txt");
             string kvitations = reader.ReadToEnd();
             reader.Close();
-            kvitations = kvitations.Replace(Program.exchange2, null);
+            kvitations = kvitations.Replace(Program.exchange2, "Квитанция " + id.ToString() + " удалена");
             StreamWriter writer = new StreamWriter("Квитанции.txt");
             writer.Write(kvitations);
             writer.Close();
+            StreamReader city = new StreamReader(textBox3.Text + ".txt");
+            int time = Convert.ToInt32(city.ReadLine());
+            city.Close();
+            StreamWriter city2 = new StreamWriter(textBox3.Text + ".txt");
+            city2.WriteLine(Convert.ToInt32(time) - old_time);
+            city2.Close();
             Close();
             Form2 newForm = new Form2();
             newForm.Show();

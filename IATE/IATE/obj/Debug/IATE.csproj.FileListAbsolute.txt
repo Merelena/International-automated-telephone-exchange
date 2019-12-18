@@ -22,5 +22,4 @@ C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\
 C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.csproj.GenerateResource.cache
 C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.exe
 C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.pdb
-C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Form5.resources
 C:\Users\alenk\Documents\GitHub\International-automated-telephone-exchange\IATE\IATE\obj\Debug\IATE.Form6.resources

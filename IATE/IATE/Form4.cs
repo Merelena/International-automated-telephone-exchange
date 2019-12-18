@@ -16,6 +16,7 @@ namespace IATE
         public Form4()
         {
             InitializeComponent();
+            this.MdiParent = Form1.mainParent;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -61,6 +62,7 @@ namespace IATE
             file.WriteLine(date);
             file.WriteLine(city);
             file.WriteLine(code);
+            file.WriteLine(time);
             file.WriteLine(tariff);
             file.WriteLine(caller);
             file.WriteLine(subscriber);
@@ -72,13 +74,21 @@ namespace IATE
             StreamWriter file2 = new StreamWriter("Квитанции.txt", true);
             file2.WriteLine(Program.exchange);
             file2.Close();
+            int old_time;
+            if (System.IO.File.Exists(city + ".txt"))
+            {
+                StreamReader reader = new StreamReader(city + ".txt");
+                old_time = Convert.ToInt32(reader.ReadLine());
+                reader.Close();
+                StreamWriter writer = new StreamWriter(city + ".txt");
+                writer.WriteLine(time+old_time);
+                writer.Close();
+            }
+            else
+            {
+                System.IO.File.WriteAllText(city  + ".txt", time.ToString());
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-            Form2 newForm = new Form2();
-            newForm.Show();
-        }
     }
 }
