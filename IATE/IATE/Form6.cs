@@ -23,7 +23,7 @@ namespace IATE
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            StreamReader file = new StreamReader(id+".txt");
+            StreamReader file = new StreamReader("Квитанции/" + id + ".txt");
             dateTimePicker1.Value = Convert.ToDateTime(file.ReadLine());
             textBox3.Text = file.ReadLine();
             textBox4.Text = file.ReadLine();
@@ -37,8 +37,8 @@ namespace IATE
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamWriter file = new StreamWriter(id + ".txt");
-            file.WriteLine(dateTimePicker1.Value.ToString("D"));
+            StreamWriter file = new StreamWriter("Квитанции/" + id + ".txt");
+            file.WriteLine(dateTimePicker1.Value.ToString().Replace("0:00:00", "").Replace(" ", ""));
             file.WriteLine(textBox3.Text);
             file.WriteLine(textBox4.Text);
             file.WriteLine(textBox5.Text);
@@ -49,14 +49,14 @@ namespace IATE
             StreamReader reader = new StreamReader("Квитанции.txt");
             string kvitations = reader.ReadToEnd();
             reader.Close();
-            kvitations = kvitations.Replace(Program.exchange2, Convert.ToString(id) + "     " + dateTimePicker1.Value.ToString("D") + "    " + textBox3.Text);
+            kvitations = kvitations.Replace(Program.exchange2, Convert.ToString(id) + "     " + dateTimePicker1.Value.ToString("D")+ "    " + textBox3.Text);
             StreamWriter writer = new StreamWriter("Квитанции.txt");
             writer.Write(kvitations);
             writer.Close();
-            StreamReader city = new StreamReader(textBox3.Text + ".txt");
+            StreamReader city = new StreamReader("Города/" + textBox3.Text + ".txt");
             int time = Convert.ToInt32(city.ReadLine());
             city.Close();
-            StreamWriter city2 = new StreamWriter(textBox3.Text + ".txt");
+            StreamWriter city2 = new StreamWriter("Города/" + textBox3.Text + ".txt");
             city2.WriteLine(Convert.ToInt32(time) - old_time + Convert.ToInt32(textBox5.Text));
             city2.Close();
             Close();
@@ -66,7 +66,7 @@ namespace IATE
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FileInfo fileInf = new FileInfo(id + ".txt");
+            FileInfo fileInf = new FileInfo("Квитанции/" + id + ".txt");
             fileInf.Delete();
             StreamReader reader = new StreamReader("Квитанции.txt");
             string kvitations = reader.ReadToEnd();
@@ -75,10 +75,10 @@ namespace IATE
             StreamWriter writer = new StreamWriter("Квитанции.txt");
             writer.Write(kvitations);
             writer.Close();
-            StreamReader city = new StreamReader(textBox3.Text + ".txt");
+            StreamReader city = new StreamReader("Города/" + textBox3.Text + ".txt");
             int time = Convert.ToInt32(city.ReadLine());
             city.Close();
-            StreamWriter city2 = new StreamWriter(textBox3.Text + ".txt");
+            StreamWriter city2 = new StreamWriter("Города/" + textBox3.Text + ".txt");
             city2.WriteLine(Convert.ToInt32(time) - old_time);
             city2.Close();
             Close();

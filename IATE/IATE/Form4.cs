@@ -57,9 +57,9 @@ namespace IATE
         private void button1_Click(object sender, EventArgs e)
         {
             Program.id += 1;
-            string address = Convert.ToString(Program.id) + ".txt";
+            string address = "Квитанции/" + Convert.ToString(Program.id) + ".txt";
             StreamWriter file = new StreamWriter(address);
-            file.WriteLine(date);
+            file.WriteLine(date.ToString().Replace("0:00:00", "").Replace(" ", ""));
             file.WriteLine(city);
             file.WriteLine(code);
             file.WriteLine(time);
@@ -75,18 +75,18 @@ namespace IATE
             file2.WriteLine(Program.exchange);
             file2.Close();
             int old_time;
-            if (System.IO.File.Exists(city + ".txt"))
+            if (System.IO.File.Exists("Города/" + city + ".txt"))
             {
-                StreamReader reader = new StreamReader(city + ".txt");
+                StreamReader reader = new StreamReader("Города/" + city + ".txt");
                 old_time = Convert.ToInt32(reader.ReadLine());
                 reader.Close();
-                StreamWriter writer = new StreamWriter(city + ".txt");
+                StreamWriter writer = new StreamWriter("Города/" + city + ".txt");
                 writer.WriteLine(time+old_time);
                 writer.Close();
             }
             else
             {
-                System.IO.File.WriteAllText(city  + ".txt", time.ToString());
+                System.IO.File.WriteAllText("Города/" + city + ".txt", time.ToString());
             }
         }
 
