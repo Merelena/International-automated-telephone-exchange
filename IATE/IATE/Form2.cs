@@ -31,7 +31,7 @@ namespace IATE
             StreamReader file = new StreamReader("Квитанции.txt");
             while (!file.EndOfStream)
             {
-                listBox1.Items.Add(file.ReadLine());
+                listBox1.Items.Add(" " + file.ReadLine());
             }
             file.Close();
         }

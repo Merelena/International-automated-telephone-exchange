@@ -90,5 +90,17 @@ namespace IATE
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StreamReader file = new StreamReader("Буфер обмена.txt");
+            dateTimePicker1.Value = Convert.ToDateTime(file.ReadLine());
+            textBox3.Text = file.ReadLine();
+            textBox4.Text = file.ReadLine();
+            textBox5.Text = file.ReadLine();
+            textBox6.Text = file.ReadLine();
+            textBox1.Text = file.ReadLine();
+            textBox2.Text = file.ReadLine();
+            file.Close();
+        }
     }
 }

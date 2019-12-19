@@ -85,5 +85,18 @@ namespace IATE
             Form2 newForm = new Form2();
             newForm.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            StreamWriter file = new StreamWriter("Буфер обмена.txt");
+            file.WriteLine(dateTimePicker1.Value.ToString().Replace("0:00:00", "").Replace(" ", ""));
+            file.WriteLine(textBox3.Text);
+            file.WriteLine(textBox4.Text);
+            file.WriteLine(textBox5.Text);
+            file.WriteLine(textBox6.Text);
+            file.WriteLine(textBox1.Text);
+            file.WriteLine(textBox2.Text);
+            file.Close();
+        }
     }
 }
