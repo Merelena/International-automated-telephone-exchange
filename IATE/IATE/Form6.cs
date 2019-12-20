@@ -13,8 +13,10 @@ namespace IATE
 {
     public partial class Form6 : Form
     {
+        bool flag = false;
         string id = Program.exchange;
-        int old_time;
+        int old_time, old_city_time;
+        string old_city;
         public Form6()
         {
             InitializeComponent();
@@ -26,9 +28,10 @@ namespace IATE
             StreamReader file = new StreamReader("Квитанции/" + id + ".txt");
             dateTimePicker1.Value = Convert.ToDateTime(file.ReadLine());
             textBox3.Text = file.ReadLine();
+            old_city = textBox3.Text;
             textBox4.Text = file.ReadLine();
             textBox5.Text = file.ReadLine();
-            old_time = Convert.ToInt32(textBox5.Text);
+            old_city_time = Convert.ToInt32(textBox5.Text);
             textBox6.Text = file.ReadLine();
             textBox1.Text = file.ReadLine();
             textBox2.Text = file.ReadLine();
@@ -53,12 +56,38 @@ namespace IATE
             StreamWriter writer = new StreamWriter("Квитанции.txt");
             writer.Write(kvitations);
             writer.Close();
-            StreamReader city = new StreamReader("Города/" + textBox3.Text + ".txt");
-            int time = Convert.ToInt32(city.ReadLine());
-            city.Close();
-            StreamWriter city2 = new StreamWriter("Города/" + textBox3.Text + ".txt");
-            city2.WriteLine(Convert.ToInt32(time) - old_time + Convert.ToInt32(textBox5.Text));
-            city2.Close();
+            int time;
+            if (System.IO.File.Exists("Города/" + textBox3.Text + ".txt"))
+            {
+                StreamReader city = new StreamReader("Города/" + textBox3.Text + ".txt");
+                time = Convert.ToInt32(city.ReadLine());
+                city.Close();
+            }
+            else
+            {
+                StreamWriter city7 = new StreamWriter("Города/" + textBox3.Text + ".txt");
+                city7.WriteLine(0);
+                time = 0;
+                city7.Close();
+            }
+            if (flag)
+            {
+                StreamWriter city2 = new StreamWriter("Города/" + textBox3.Text + ".txt");
+                city2.WriteLine(time + Convert.ToInt32(textBox5.Text));
+                city2.Close();
+                StreamReader city6 = new StreamReader("Города/" + old_city + ".txt");
+                old_time = Convert.ToInt32(city6.ReadLine());
+                city6.Close();
+                StreamWriter city4 = new StreamWriter("Города/" + old_city + ".txt");
+                city4.WriteLine(old_time - old_city_time);
+                city4.Close();
+            }
+            else
+            {
+                StreamWriter city3 = new StreamWriter("Города/" + textBox3.Text + ".txt");
+                city3.WriteLine(Convert.ToInt32(time) - old_city_time + Convert.ToInt32(textBox5.Text));
+                city3.Close();
+            }
             Close();
             Form2 newForm = new Form2();
             newForm.Show();
@@ -97,6 +126,11 @@ namespace IATE
             file.WriteLine(textBox1.Text);
             file.WriteLine(textBox2.Text);
             file.Close();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            flag = true;
         }
     }
 }

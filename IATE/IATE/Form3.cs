@@ -58,9 +58,9 @@ namespace IATE
                     file.ReadLine();
                     time = Convert.ToInt32(file.ReadLine());
                     tariff = Convert.ToDouble(file.ReadLine());
-                    file.Close();
                     result += time * tariff;
                 }
+                file.Close();
             }
             label2.Text = result.ToString() + " бел. руб.";
         }
