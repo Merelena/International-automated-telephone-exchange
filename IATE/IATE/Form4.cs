@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace IATE
 {
@@ -56,21 +57,22 @@ namespace IATE
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Program.id += 1;
-            string address = "Квитанции/" + Convert.ToString(Program.id) + ".txt";
+            Program.iden.id += 1;
+            string address = "Квитанции/" + Convert.ToString(Program.iden.id) + ".txt";
             StreamWriter file = new StreamWriter(address);
-            file.WriteLine(date.ToString().Replace("0:00:00", "").Replace(" ", ""));
-            file.WriteLine(city);
-            file.WriteLine(code);
-            file.WriteLine(time);
-            file.WriteLine(tariff);
-            file.WriteLine(caller);
-            file.WriteLine(subscriber);
+            file.WriteLine(dateTimePicker1.Value.ToString().Replace("0:00:00", "").Replace(" ", ""));
+            file.WriteLine(textBox3.Text);
+            file.WriteLine(textBox4.Text);
+            file.WriteLine(Convert.ToInt32(textBox5.Text));
+            file.WriteLine(Convert.ToSingle(textBox6.Text));
+            file.WriteLine(textBox1.Text);
+            file.WriteLine(textBox2.Text);
             file.Close();
-            StreamWriter iden = new StreamWriter("Identificator.txt");
-            iden.Write(Program.id);
-            iden.Close();
-            Program.exchange = " " + Convert.ToString(Program.id) + "     " + date.ToString("D") +"    " + city;
+            using (FileStream fs = new FileStream("Identificator.dat", FileMode.OpenOrCreate))
+            {
+                Program.formatter.Serialize(fs, Program.iden);
+            }
+            Program.exchange = " " + Convert.ToString(Program.iden.id) + "     " + date.ToString("D") +"    " + city;
             StreamWriter file2 = new StreamWriter("Квитанции.txt", true);
             file2.WriteLine(Program.exchange);
             file2.Close();
@@ -88,6 +90,11 @@ namespace IATE
             {
                 System.IO.File.WriteAllText("Города/" + city + ".txt", time.ToString());
             }
+            MessageBox.Show(
+                "Квитанция сохранена",
+                "Сообщение",
+                MessageBoxButtons.OK
+                );
         }
 
         private void button2_Click(object sender, EventArgs e)

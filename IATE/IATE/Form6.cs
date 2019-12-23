@@ -89,6 +89,11 @@ namespace IATE
                 city3.Close();
             }
             Close();
+            MessageBox.Show(
+                "Квитанция изменена",
+                "Сообщение",
+                MessageBoxButtons.OK
+                );
             Form2 newForm = new Form2();
             newForm.Show();
         }
@@ -110,6 +115,11 @@ namespace IATE
             StreamWriter city2 = new StreamWriter("Города/" + textBox3.Text + ".txt");
             city2.WriteLine(Convert.ToInt32(time) - old_time);
             city2.Close();
+            MessageBox.Show(
+                "Квитанция удалена",
+                "Сообщение",
+                MessageBoxButtons.OK
+                );
             Close();
             Form2 newForm = new Form2();
             newForm.Show();
@@ -126,6 +136,11 @@ namespace IATE
             file.WriteLine(textBox1.Text);
             file.WriteLine(textBox2.Text);
             file.Close();
+            MessageBox.Show(
+                "Квитанция скопирована",
+                "Сообщение",
+                MessageBoxButtons.OK
+                );
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
