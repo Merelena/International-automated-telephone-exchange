@@ -52,7 +52,7 @@ namespace IATE
             StreamReader reader = new StreamReader("Квитанции.txt");
             string kvitations = reader.ReadToEnd();
             reader.Close();
-            kvitations = kvitations.Replace(Program.exchange2, Convert.ToString(id) + "     " + dateTimePicker1.Value.ToString("D")+ "    " + textBox3.Text);
+            kvitations = kvitations.Replace(Program.exchange2, " " + Convert.ToString(id) + "     " + dateTimePicker1.Value.ToString("D")+ "    " + textBox3.Text);
             StreamWriter writer = new StreamWriter("Квитанции.txt");
             writer.Write(kvitations);
             writer.Close();
